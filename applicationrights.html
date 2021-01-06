@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>APP权限的坑</title>
+    <!-- 引入 echarts.js -->
+    <script src="JS/echarts.min.js"></script>
+</head>
+<body>
+<div style="background-color: aqua;background-image:url(image/yinsi3.jpg);background-attachment:fixed;width:100%; height: 600px">
+    <div style="margin-left: 15% ;margin-right: 15%; padding-top: 50px">
+       <p style="font-size: 100px; line-height: 200px; font-family: 方正粗圆_GBK; color: #ffffff; text-align: center">APP权限的坑</br><span >这些坑你踩过吗？</span>
+       </p>
+   </div>
+</div>
+
+
+<div  style="background-color: #ffffff;width: 100%">
+    <p style="align-content: center;color:#fd0606;font-size: 20px; line-height: 40px; font-family: 华文仿宋; margin-left: 25%;margin-right: 25%">
+
+        <br>
+        <span style="margin-left: 5%">工业和信息化部关于电信服务质量的通告（2020年第4号）中指出：三季度，工业和信息化部开展纵深推进APP侵害用户权益问题整治工作，组织对国内主流手机应用商店的20万款应用软件进行技术检测，发现500余款APP存在违规收集使用个人信息及APP强制、频繁、过度索权等问题，并对未在限期内完成整改的159款APP进行公开通报、31款APP进行下架。</span>
+    <br>
+
+    </p>
+</div>
+
+<div style="width:100%">
+    <div style="width: 100%;margin-left:40%;font-size: 20px;font-family: Arial">图1.2020年度工信部六次通报的APP名单</div>
+    <div id="main1" style="width: 800px;height:500px;margin-left: 32%"><img src="image/微词云%20(1).jpg" width="600" height="500">
+    </div>
+</div>
+
+<div style="width: 100%">
+    <div id="second36" style="width: 800px;margin-left: 25%;font-size: 20px;font-family: 华文仿宋;line-height: 40px">
+        <p style="text-align: left">2020年10月26日，工业和信息化部本年度第五次向社会通报了131家存在<span style="color: red;font-size: 22px">侵害用户权益行为APP</span>
+            以及相应企业的名单。截至目前，经第三方检测机构核查复检，尚有60款APP未按照工业和信息化部要求完成整改。依据相关要求，工业和信息化部组织对上述APP进行下架。至此，本年度工信部已经针对侵害用户权益行为的APP进行了六次通报并勒令整改，前后涉及共计381款App。
+        </p>
+    </div>
+</div>
+
+<div style="background-color: #fff;width:100%;height:5px"></div>
+
+<div style="background-color: #fff;width:100%">
+    <div style="width:100%;margin-left: 35%;font-size:20px;font-family: Arial">图2.2018和2020年中国手机网民手机APP隐私条款阅读情况</div>
+    <iframe src="https://hanabi.data-viz.cn/chart.html?id=s_ac71f58439654de38b3c6e6bb19b63a4&isIframe=1" frameborder="0" width="100%" height="630px"></iframe></div>
+
+<div style="background-color: #fff;width:100%;height:5px"></div>
+
+<div style="width: 100%">
+    <div id="second1" style="width: 800px;margin-left: 25%;font-size: 16px">
+        <p style="text-align: left">
+            <span style="font-size: 20px; line-height: 40px; font-family: 华文仿宋">数据显示，相比于2018年，2020年认真阅读隐私条款的网民有所增加，从32.4%上升为36.4%，说明中国手机网民的个人隐私保护意识在一定程度上有所增强，但整体情况依旧不容乐观。
+            </span>
+        </p>
+    </div>
+</div>
+
+<div style="background-color: #fff;width:100%;height:5px"></div>
+
+<div style="width:100%">
+    <div style="width:100%;font-family: Arial;font-size: 20px;margin-left: 37%">图3.2020年中国手机网民手机app申请调用权限时的反应</div>
+    <div id="2p" style="width: 800px;height:600px;margin-left: 27%">
+    </div>
+</div>
+
+<div style="width: 100%">
+    <div id="second123" style="width: 800px;margin-left: 25%">
+        <p style="text-align: left">
+            <span style="font-size: 20px; line-height: 40px; font-family: 华文仿宋">从数据可以看出，有57.8%的受访网民在APP申请调用权限时辨别后或选择部分通过；30.3%的受访网民会因拒绝应用强迫调用权限而放弃使用该APP。由此可见，手机网民对于辨别APP权限渐趋于主动，但在面对应用过度调用的情况下，仅有少数网民能够坚定拒绝继续使用应用，而绝大多数网民仍迫于需求或者方便妥协于让步于应用不法调用用户信息。
+            </span>
+        </p>
+    </div>
+</div>
+
+<div style="background-color: #fff;width:100%;height:0px"></div>
+
+<div style="width: 100%">
+    <div id="second" style="width: 800px;margin-left: 25%">
+        <p style="text-align: left">
+            <span style="font-size: 20px; line-height: 40px; font-family: 华文仿宋">最新数据显示，截至2020年6月，我国网民使用手机上网的比例高达99.2%。在如此大规模用户的背景下，用户个人隐私信息保护意识弱使得App成为用户个人信息泄露的主要出口。一些手机应用潜伏在手机后台，无声无息间读取了大量用户的信息，同时传送到指定的服务器存储起来。这些失窃的隐私信息就像一颗颗定时炸弹，给使用者的社交安全带来了极大的隐患。
+            </span>
+        </p>
+    </div>
+</div>
+
+<div style="width:100%">
+    <div id="main" style="width: 800px;height:430px;margin-left: 30%"><img src="image/圆通信息泄露.jpg" width="626" height="421">
+    </div>
+</div>
+
+<div style="width: 100%">
+    <div id="second365" style="width: 800px;margin-left: 25%">
+        <p style="text-align: left">
+            <span style="font-size: 20px; line-height: 40px; font-family: 华文仿宋">为了更好地了解这些手机应用偷窃了用户的哪些信息，我们从工业和信息化部、网络信息办公室等可信机关获取到应用权限表、2020年度六次通报的App信息以及在网上抓取的App权限信息等。经收集、清洗、分析数据后，结合文献分析，将内容展示如下：
+            </span>
+        </p>
+    </div>
+</div>
+
+<div style="background-color: #fff;width:100%;height:20px"></div>
+
+<div style="background-color: aqua;background-image:url(image/素材（3）ps.jpg);background-attachment: fixed;width:100%;height: 350px">
+    <div style="margin-left: 20% ;margin-right: 20%; padding-top: 35px">
+        <p style="font-size: 80px; line-height: 120px; text-align: center"><span style="font-family: 方正粗圆_GBK; color: white"> App获取了哪些权限？</span>
+        </p>
+    </div>
+</div>
+
+<div style="background-color: #fff;width:100%;height:50px"></div>
+
+<div style="width: 100%">
+    <div  style="width: 800px;margin-left: 25%;font-size: 20px; font-family: 华文仿宋; line-height: 40px">
+        <p style="text-align: left">
+            <span style="font-size: 20px">由中国互联网信息办公室提供的《百款常用 App 申请收集使用个人信息权限列表》中陈列与个人信息相关的26项权限中，平均每个APP申请了10个权限。其中申请权限数最多的是360 手机卫士 ，申请的权限数高达23项。其中相机、定位、录音权限、读取和写入存储器成为最常调用权限；99.0%的APP默认调用相机权限。
+            </span>
+        </p>
+    </div>
+</div>
+
+<div style="background-color: #fff;width:100%;height:5px"></div>
+
+<div style="width:100%">
+    <div style="width:100%;font-family: Arial;font-size: 20px;margin-left:45%">图4.常用APP所获取的具体权限</div>
+    <div id="3p0" style="width: 1200px;height:600px;margin-left: 12%"> <iframe src="https://hanabi.data-viz.cn/chart.html?id=s_7f25633a298a438781f6722a15ac0fe3&isIframe=1" frameborder="0" width="100%" height="600px"></iframe>
+    </div>
+</div>
+
+<div style="width: 100%">
+    <div  style="width: 800px;margin-left: 25%;font-size: 20px; font-family: 华文仿宋; line-height: 40px">
+        <p style="text-align: left">
+            <span style="font-size: 20px">上图中展示了其中使用量最高的前二十款App收集的有关个人信息权限。移动社交类APP联系人读取权限调用情况较为突出；100.0%的移动社交类APP默认调用定位、相机、读取通讯录、录音、读取电话状态权限；60.0%的移动社交类APP默认编辑通讯录权限。对于网购类、社交类、旅游类、理财类手机APP，这些类别的APP涉及用户日常生活的各个方面，需获取用户较多个人信息完成相应功能。</span>
+        </p>
+    </div>
+</div>
+
+<div style="background-color: #fff;width:100%;height:0px"></div>
+
+<div style="width: 100%">
+    <div  style="width: 800px;margin-left: 25%;font-size: 20px; font-family: 华文仿宋; line-height: 40px">
+        <p style="text-align: left">
+            <span style="font-size: 20px">读取联系人、短信、彩信等行为对于这些类别APP正常运作所起作用有限，对该部分信息的读取涉及疑似越界行为，其中在读取联系人方面疑似越界较严重。</span>
+        </p>
+    </div>
+</div>
+
+<div style="background-color: #fff;width:100%;height:30px"></div>
+
+<div style="background-color: aqua;background-image:url(image/素材（3）ps.jpg);background-attachment: fixed;width:100%;height: 430px">
+    <div style="margin-left: 12% ;margin-right: 12%; padding-top: 5px">
+        <p style="font-size: 80px; line-height: 120px; color: white; font-family: 方正粗圆_GBK; text-align: center">各类APP权限数量对比</br><span style="font-size: 80px">哪类APP拿走了我们最多的信息?</span>
+        </p>
+    </div>
+</div>
+
+<div style="background-color: #fff;width:100%;height:80px"></div>
+
+<div style="width:100%">
+    <div style="width:100%;font-family: Arial;font-size: 20px;margin-left: 41%">图5.各类APP申请收集个人信息相关权限数</div>
+    <div id="4p" style="width: 800px;height:600px;margin-left: 25%">
+    </div>
+</div>
+
+<div style="width: 100%">
+    <div  style="width: 800px;margin-left: 25%;font-size: 20px">
+        <p style="text-align: left">
+            <span style="font-size: 20px; line-height: 40px; font-family: 华文仿宋">根据各类App申请收集个人信息相关权限可知，工具类App（如：百度网盘、腾讯手机管家等等）收集个人信息相关权限较多，平均达到了15个。餐饮外卖类和地图导航类App收集的权限数较少，均只有8个。而其他类型的App申请收集个人权限数也就9个左右。
+            </span>
+        </p>
+    </div>
+</div>
+
+<div style="background-color: #fff;width:100%;height:30px"></div>
+
+<div style="width:100%">
+    <div style="width:100%;font-family: Arial;font-size: 20px;margin-left: 38%">图6.各类APP使用量与其申请权限数量的关系</div>
+    <div id="5p" style="width: 800px;height:600px;margin-left: 25%">
+    </div>
+</div>
+
+<div style="background-color: #fff;width:100%;height:30px"></div>
+
+<div style="width: 100%">
+    <div  style="width: 800px;margin-left: 25%;font-size: 20px">
+        <p style="text-align: left">
+            <span style="font-size: 20px; line-height: 40px; font-family: 华文仿宋">根据如上散点图可知各大类App中月独立设备数、总使用有效时间占比及申请权限个数，以及彼此之间的关系。其中，社交类和工具类App月独立设备数比较多，上述图中最常见App中大多数App总使用有效时间占比约为1。显然，微信的月独立设备数及总使用有效时间占比远大于其他App，说明人们使用手机时大部分时间均用在微信上。
+            </span>
+        </p>
+    </div>
+</div>
+
+<div style="width: 100%">
+    <div  style="width: 800px;margin-left: 25%;font-size: 20px">
+        <p style="text-align: left">
+            <span style="font-size: 20px; line-height: 40px; font-family: 华文仿宋">由上图可以了解到，大部分App申请收集个人信息相关权限数为8、9个，因此，大部分App申请收集个人信息相关权限数差不多，具体的权限差别也不是很大，因此，各App获取我们的信息差不多，商家想获取我们个人数据也差不多。
+            </span>
+        </p>
+    </div>
+</div>
+
+<div style="background-color: #fff;width:100%;height:30px"></div>
+
+<div style="background-color: aqua;background-image:url(image/素材（3）ps.jpg);background-attachment: fixed;width:100%;height: 380px">
+    <div style="margin-left: 10% ;margin-right: 10%; padding-top: 5px">
+        <p style="font-size: 80px; font-family: 方正粗圆_GBK; line-height: 120px; color: white; text-align: center">权限级别划分</br><span style="font-size: 80px">哪个APP拿走了我们最多的信息?</span>
+        </p>
+    </div>
+</div>
+
+<div style="background-color: #fff;width:100%;height:30px"></div>
+
+<div style="width: 100%">
+    <div  style="width: 800px;margin-left: 25%;font-size: 16px">
+        <p style="text-align: left">
+            <span style="font-size: 20px; line-height: 40px; font-family: 华文仿宋">APP申请的权限分为必要权限以及越级权限（业务权限）。而不同类型的APP所需要申请的权限数量并不是完全一致的。因此，在讨论APP申请权限对我们隐私的侵犯时，必须要对APP所申请的不同类型的权限进行划分，进而探究其是否通过app权限对我们合法的权益产生危害。下图展示了目前市场使用量前二十的APP获取不同类型权限的数量。（注：“必要权限”是指保障App正常运行所必需的最少权限，一般都是在App首次开启时，需用户同意授权必要权限后，才能正常进入App主界面（常见的有“存储权限”等）。“业务所需权限”是指紧密结合业务实际功能所需的权限，比如拍照、扫二维码等需要“相机”权限，查看附近的服务需要“位置”权限等。）
+            </span>
+        </p>
+    </div>
+</div>
+
+
+<div style="background-color: #fff;width:100%">
+    <div style="width:100%;font-family: Arial;font-size: 20px;margin-left: 40%">图7.常用APP必要权限与越级权限数</div>
+    <iframe src="https://hanabi.data-viz.cn/chart.html?id=s_5da1a5846a1842228b44e85d289435fb&isIframe=1" frameborder="0" width="100%" height="591px"></iframe></div>
+<div style="background-color: #fff;width:100%;height:0px"></div>
+
+<div style="width: 100%">
+    <div  style="width: 800px;margin-left: 25%;font-size: 16px">
+        <p style="text-align: left">
+            <span style="font-size: 20px; line-height: 40px; font-family: 华文仿宋">由上图可以了解到，大部分APP所需要的必要权限其实很少，大部分都是为了更好的实现APP功能而索取的越级权限，这些权限的使用并不一定是该类APP所必须的。一些不法的商家也正是打着这样一面旗帜，非法获取、使用用户的相关隐私信息。而一些APP用户对此也没有足够警惕性，容易不假思索就同意相关APP的权限申请。</span>
+        </p>
+    </div>
+</div>
+
+<div style="background-color: #fff;width:100%;height:30px"></div>
+
+<div style="background-color: aqua;background-image:url(image/素材（3）ps.jpg);background-attachment: fixed;width:100%;height: 380px">
+    <div style="margin-left: 20% ;margin-right: 20%; padding-top: 5px">
+                <p style="font-size: 80px ;text-align: center">
+            <span style="font-family: 方正粗圆_GBK; font-size: 80px;line-height: 120px; color: white">安全意识有所提升<br>信息保密仍需重视</span>
+         </p>
+       </div>
+</div>
+
+<div style="width:100%">
+    <div id="6p" style="width: 800px;height:5px;margin-left: 25%">
+    </div>
+</div>
+
+<div style="width: 100%">
+    <div  style="width: 800px;margin-left: 25%;font-size: 20px; font-family: 华文仿宋; line-height: 40px">
+        <p style="text-align: left">
+            <span style="font-size: 20px">iiMediaResearch(艾媒咨询)的数据显示，相比于2018年，2020年认真阅读隐私条款的网民有所增加，从32.4%上升为36.4%。但这个数据仍然说明了提升用户隐私保护意识还有很长的一段路要走，政府企业仍需要投入更多的资源来发展网络安全建设。</span>
+        </p>
+    </div>
+</div>
+
+<div style="background-color: #fff;width:100%;height:0px"></div>
+
+<div style="width: 100%">
+    <div  style="width: 800px;margin-left: 25%;font-size: 20px; font-family: 华文仿宋; line-height: 40px">
+        <p style="text-align: left">
+            <span style="font-size: 20px">APP成用户隐私惯犯，还在于现有处罚手段不够让其“肉疼”。某些企业往往从所谓“经济人理性”出发，对盗用、滥用乃至交易用户隐私、数据等权益所获取的利益与所带来的法律后果进行对比，一旦发现违法成本过低，就会将侵犯用户权益异化为本小利大的稳赚生意，从而这种畸形的商业逻辑屡禁不止，本质上则是对法律的无视。因此，建议对于APP要强化管理。</span>
+        </p>
+    </div>
+</div>
+
+<div style="background-color: #fff;width:100%;height:0px"></div>
+
+<div style="width: 100%">
+    <div  style="width: 800px;margin-left: 25%;font-size: 20px; font-family: 华文仿宋; line-height: 40px">
+        <p style="text-align: left">
+            <span style="font-size: 20px">首先，对APP上线应有事先审查程序，如果查及开通了通向用户隐私数据的“后门”，不仅要取缔上线资格，而且要进行处罚，并对外公示。而在APP上线后，一旦发生侵犯用户隐私等权益的行为，处罚标准也应“就高不就低”，采取零容忍态度，让企业看到监管部门的整治决心。</span>
+        </p>
+    </div>
+</div>
+
+<div style="background-color: #fff;width:100%;height:0px"></div>
+
+<div style="width: 100%">
+    <div  style="width: 800px;margin-left: 25%;font-size: 20px; font-family: 华文仿宋; line-height: 40px">
+        <p style="text-align: left">
+            <span style="font-size: 20px">更需要完善之处在于立法。“是否存在超范围获取用户信息风险”应被列为App安全审查核心标准之一，不满足安全标准者不得进入市场。同时我国相关法律法规对于APP侵犯用户权益的力度还需强化，可否借鉴类似《一般数据保护条例》等国外经验，罚款额度以企业营收总额为基础，对违规企业的暂停乃至永久下架，设置更严格的启动程序等，从而让企业真正明白，触犯法律的后果是不堪承受的。</span>
+        </p>
+    </div>
+</div>
+
+<div style="background-color: #fff;width:100%;height:0px"></div>
+
+<div style="width: 100%">
+    <div  style="width: 800px;margin-left: 25%;font-size: 20px; font-family: 华文仿宋; line-height: 40px">
+        <p style="text-align: left">
+            <span style="font-size: 20px">随着法律法规的逐步完善，业内利用过度索权、信息窃取等方式进行牟利的应用开发商将难以逃脱法律的制裁。在网络环境进一步得到净化的背景下，应用开发商及运营者必须充分重视数据安全以及用户个人隐私管理。只有充分遵循法律条文，在合法合规的背景下规范运行，不做违法违情，以实际行动净化APP的市场应用环境，确保每一款APP都是让用户感到放心、安全的APP才是应用厂商生存的长久之道。</span>
+    </div>
+</div>
+
+<div style="background-color: #fff;width:100%;height:20px"></div>
+
+<div style="width:100%;height:250px;background-color:#1dddf6">
+    <p style="font-size: 20px; font-family: 华文隶书; line-height: 40px; text-align: center">
+        <strong>联系方式：</strong>yyscuter@163.com<br><strong>图片</strong>：来源于网络<br><strong>数据来源：</strong>
+        <br>中共中央网络安全和信息化委员会办公室<br>中华人名共和国工业和信息化部<br>《2020年中国手机APP隐私权限测评报告》
+
+    </p>
+</div>
+
+
+
+
+
+<script type="text/javascript">
+    // 基于准备好的dom，初始化echarts实例
+
+    var myChart2 = echarts.init(document.getElementById('2p'));
+
+    var myChart4 = echarts.init(document.getElementById('4p'));
+    var myChart5 = echarts.init(document.getElementById('5p'));
+
+    // 指定图表的配置项和数据
+
+    option0 = {
+        legend: {},
+        tooltip: {},
+        dataset: {
+            // 提供一份数据。
+            source: [
+                ['product', '2015', '2016', '2017'],
+                ['Matcha Latte', 43.3, 85.8, 93.7],
+                ['Milk Tea', 83.1, 73.4, 55.1],
+                ['Cheese Cocoa', 86.4, 65.2, 82.5],
+                ['Walnut Brownie', 72.4, 53.9, 39.1]
+            ]
+        },
+        // 声明一个 X 轴，类目轴（category）。默认情况下，类目轴对应到 dataset 第一列。
+        xAxis: {type: 'category'},
+        // 声明一个 Y 轴，数值轴。
+        yAxis: {},
+        // 声明多个 bar 系列，默认情况下，每个系列会自动对应到 dataset 的每一列。
+        series: [
+            {type: 'bar'},
+            {type: 'bar'},
+            {type: 'bar'}
+        ]
+    };
+
+    option2 = {
+        title:{text:"数据来源：艾媒数据",
+            bottom:'5%',
+            right:'80%',
+            textStyle:{fontSize:12,
+                fontWeight:'light',
+                color:'#000',
+                opacity: 1}
+        },
+
+        tooltip: {
+            trigger: 'item',
+            formatter: '{a} <br/>{b} : {d}%'
+        },
+
+
+        series: [
+
+            {
+                name: '反应',
+                type: 'pie',
+                radius: [20, 200],
+                center: ['50%', '60%'],
+                roseType: 'area',
+                data: [
+                    {value: 57.8, name: '辨别后部分通过'},
+                    {value: 21.8, name: '直接点通过'},
+                    {value: 6.3, name: '全部拒绝'},
+                    {value: 14.1, name: '辨别后全部通过'}
+                ]
+            }
+        ]
+    };
+
+
+    option4 = {
+        title:{text:"数据来源：中国网信办",
+            bottom:'1%',
+            right:'80%',
+            textStyle:{fontSize:12,
+                fontWeight:'light',
+                color:'#000',
+                opacity: 1}
+        },
+
+        tooltip: {},
+
+        radar: {
+            // shape: 'circle',
+            name: {
+                textStyle: {
+                    color: '#fff',
+                    backgroundColor: '#999',
+                    borderRadius: 3,
+                    padding: [3, 5]
+                }
+            },
+            indicator: [
+                { name: '网上购物类', max: 18},
+                { name: '即使通讯类', max:18},
+                { name: '影音娱乐类', max: 18},
+                { name: '网络游戏类', max: 18},
+                { name: '短视频类', max: 18},
+                { name: '地图导航类', max: 18},
+                { name: '新闻资讯类', max: 18},
+                { name: '餐饮外卖类', max: 18},
+                { name: '工具软件类', max: 18},
+
+            ]
+        },
+        series: [{
+            name: '预算 vs 开销（Budget vs spending）',
+            type: 'radar',
+            // areaStyle: {normal: {}},
+            data: [
+                {
+                    value: [9, 10,9,9, 9,8,9,8, 15],
+                    name: '各类App申请收集个人信息相关权限数'
+                },
+
+            ]
+        }]
+    };
+
+    var dataSJ = [
+        [115148,15.19,11,"微信"],
+        [69101,3.62,3.62,11,"QQ"],
+        [57392,1.76,12,"新浪微博"],
+        [12553,0.37,13,"钉钉"],
+
+    ];
+
+    var dataYL = [
+        [58345,5.12,11,"爱奇艺"],
+        [67798,4.86,9,"抖音短视频"],
+        [55153,4.50,7,"腾讯视频"],
+        [39335,3.47,10,"优酷"],
+        [14850,2.25,8,"西瓜视频"],
+        [46582,1.95,10,"快手"],
+        [18259,1.94,7,"芒果TV"],
+        [12902,1.03,12,"王者荣耀"],
+        [12635,0.87,9,"哔哩哔哩"],
+        [32787,0.86,10,"酷狗音乐"],
+        [12753,0.81,4,"掌阅"],
+        [18757,0.75,8,"酷我音乐"],
+        [6297,0.56,10,"开心消消乐"],
+        [16651,0.53,9,"喜马拉雅"],
+        [16173,0.41,8,"网易云音乐"],
+        [30682,0.36,9,"QQ音乐"],
+    ];
+
+    var dataZX = [
+        [27574,2.80,9,"今日头条"],
+        [27788,1.30,8,"腾讯新闻"],
+        [12233,0.47,7,"网易新闻"],
+    ];
+
+    var dataGJ = [
+        [34913,2.78,7,"UC浏览器"],
+        [49908,2.08,10,"QQ浏览器"],
+        [50211,1.78,9,"百度"],
+        [50235,1.33,8,"高德地图"],
+        [75145,1.17,10,"手机淘宝"],
+        [59659,1.06,10,"支付宝"],
+        [36613,0.49,13,"WiFi万能钥匙"],
+        [39984,0.47,8,"拼多多"],
+        [23617,0.41,7,"墨迹天气"],
+
+    ];
+    var schema = [
+        {name: 'date', index: 0, text: '日'},
+        {name: 'AQIindex', index: 1, text: '总使用有效时间占比'},
+        {name: 'PM25', index: 2, text: '申请权限数'},
+
+    ];
+
+
+    var itemStyle = {
+        opacity: 0.8,
+        shadowBlur: 10,
+        shadowOffsetX: 0,
+        shadowOffsetY: 0,
+        shadowColor: 'rgba(0, 0, 0, 0.5)'
+    };
+
+    var dataSJ = [
+        [115148,15.19,11,"微信"],
+        [69101,3.62,3.62,11,"QQ"],
+        [57392,1.76,12,"新浪微博"],
+        [12553,0.37,13,"钉钉"],
+
+    ];
+
+    var dataYL = [
+        [58345,5.12,11,"爱奇艺"],
+        [67798,4.86,9,"抖音短视频"],
+        [55153,4.50,7,"腾讯视频"],
+        [39335,3.47,10,"优酷"],
+        [14850,2.25,8,"西瓜视频"],
+        [46582,1.95,10,"快手"],
+        [18259,1.94,7,"芒果TV"],
+        [12902,1.03,12,"王者荣耀"],
+        [12635,0.87,9,"哔哩哔哩"],
+        [32787,0.86,10,"酷狗音乐"],
+        [12753,0.81,4,"掌阅"],
+        [18757,0.75,8,"酷我音乐"],
+        [6297,0.56,10,"开心消消乐"],
+        [16651,0.53,9,"喜马拉雅"],
+        [16173,0.41,8,"网易云音乐"],
+        [30682,0.36,9,"QQ音乐"],
+    ];
+
+    var dataZX = [
+        [27574,2.80,9,"今日头条"],
+        [27788,1.30,8,"腾讯新闻"],
+        [12233,0.47,7,"网易新闻"],
+    ];
+
+    var dataGJ = [
+        [34913,2.78,7,"UC浏览器"],
+        [49908,2.08,10,"QQ浏览器"],
+        [50211,1.78,9,"百度"],
+        [50235,1.33,8,"高德地图"],
+        [75145,1.17,10,"手机淘宝"],
+        [59659,1.06,10,"支付宝"],
+        [36613,0.49,13,"WiFi万能钥匙"],
+        [39984,0.47,8,"拼多多"],
+        [23617,0.41,7,"墨迹天气"],
+
+    ];
+    var schema = [
+        {name: 'date', index: 0, text: '日'},
+        {name: 'AQIindex', index: 1, text: '总使用有效时间占比'},
+        {name: 'PM25', index: 2, text: '申请权限数'},
+
+    ];
+
+
+    var itemStyle = {
+        opacity: 0.8,
+        shadowBlur: 10,
+        shadowOffsetX: 0,
+        shadowOffsetY: 0,
+        shadowColor: 'rgba(0, 0, 0, 0.5)'
+    };
+
+    option5= {
+        title:{text:"数据来源：中国网信办、艾瑞网",
+            bottom:'1%',
+            right:'75%',
+            textStyle:{fontSize:12,
+                fontWeight:'light',
+                color:'#000',
+                opacity: 1}
+        },
+
+        backgroundColor: '#FFFFFF',
+        color: [
+            '#dd4444', '#fec42c', '#80F1BE', '#0f0'
+        ],
+        legend: {
+            top: 10,
+            data: ['社交类', '娱乐类', '资讯类', '工具类'],
+            textStyle: {
+                color: '#000',
+                fontSize: 16
+            }
+        },
+        grid: {
+            left: '10%',
+            right: 150,
+            top: '18%',
+            bottom: '10%'
+        },
+        tooltip: {
+            padding: 10,
+            backgroundColor: '#444',
+            borderColor: '#0f0',
+            borderWidth: 1,
+            formatter: function (obj) {
+                var value = obj.value;
+                return '<div style="border-bottom: 1px solid rgba(0,0,255,0); font-size: 18px;padding-bottom: 7px;margin-bottom: 7px">'
+                    + obj.seriesName + ' ' + '：'
+                    + value[3]
+                    + '</div>'
+                    + schema[1].text + '：' + value[1] + '<br>'
+                    + schema[2].text + '：' + value[2] + '<br>'
+                    ;
+            }
+        },
+        xAxis: {
+            type: 'value',
+            name: '月度独立设备数（万台）',
+            nameGap: 16,
+            nameTextStyle: {
+                color: '#000',
+                fontSize: 14
+            },
+            max: 120000,
+            splitLine: {
+                show: false
+            },
+            axisLine: {
+                lineStyle: {
+                    color: '#000'
+                }
+            }
+        },
+        yAxis: {
+            type: 'value',
+            name: '总使用有效时间占比',
+            nameLocation: 'end',
+            nameGap: 20,
+            nameTextStyle: {
+                color: '#000',
+                fontSize: 16
+            },
+            max: 16,
+            axisLine: {
+                lineStyle: {
+                    color: '#000'
+                }
+            },
+            splitLine: {
+                show: false
+            }
+        },
+
+        visualMap: [
+            {
+                left: '85%',
+                top: '10%',
+                dimension: 2,
+                min: 1,
+                max: 13,
+                itemWidth: 30,
+                itemHeight: 120,
+                calculable: true,
+                precision: 0.1,
+                text: ['申请权限数'],
+                textGap: 30,
+                textStyle: {
+                    color: '#000'
+                },
+                inRange: {
+                    symbolSize: [10, 40]
+                },
+                outOfRange: {
+                    symbolSize: [10, 70],
+                    color: ['rgba(0,0,0,0)']
+                },
+                controller: {
+                    inRange: {
+                        color: ['#f00']
+                    },
+                    outOfRange: {
+                        color: ['#444']
+                    }
+                }
+            },
+
+        ],
+        series: [
+            {
+                name: '社交类',
+                type: 'scatter',
+                itemStyle: itemStyle,
+                data: dataSJ
+            },
+            {
+                name: '娱乐类',
+                type: 'scatter',
+                itemStyle: itemStyle,
+                data: dataYL
+            },
+            {
+                name: '资讯类',
+                type: 'scatter',
+                itemStyle: itemStyle,
+                data: dataZX
+            },
+            {
+                name: '工具类',
+                type: 'scatter',
+                itemStyle: itemStyle,
+                data: dataGJ
+            },
+        ],
+        dataZoom: [
+            {   // 这个dataZoom组件，默认控制x轴。
+                type: 'slider', // 这个 dataZoom 组件是 slider 型 dataZoom 组件
+                start: 0,      // 左边在 10% 的位置。
+                end: 1000 ,
+                handleStyle:{color:'#000000',},
+                bottom:'1px'// 右边在 60% 的位置。
+            },
+            {   // 这个dataZoom组件，也控制x轴。
+                type: 'inside', // 这个 dataZoom 组件是 inside 型 dataZoom 组件
+                start: 0,      // 左边在 10% 的位置。
+                end: 1000 , // 右边在 60% 的位置。
+            }
+        ],
+        dataZoom: [
+            {
+                type: 'slider',
+                xAxisIndex: 0,
+                start: 0,
+                end: 100
+            },
+            {
+                type: 'inside',
+                xAxisIndex: 0,
+                start: 0,
+                end: 100
+            },
+            {
+                type: 'slider',
+                yAxisIndex: 0,
+                start: 0,
+                end: 100
+            },
+            {
+                type: 'inside',
+                yAxisIndex: 0,
+                start: 0,
+                end: 100
+            }
+        ],
+    };
+
+    // 使用刚指定的配置项和数据显示图表。
+
+    myChart2.setOption(option2);
+
+    myChart4.setOption(option4);
+    myChart5.setOption(option5);
+
+</script>
+</body>
+</html>
